@@ -10,6 +10,9 @@ const hbs = require('hbs')
 
 const app = express()
 
+// creating port so that app can be used with heroku and if app is localy used logical or will provide 3000 to port variable
+const port = process.env.PORT || 3000
+
 // Define paths for express config
 const publicDirectoryPath = path.join(__dirname, '../public')
 // handlebars (hbs) setup in express seting viewengine to hbs 
@@ -141,6 +144,11 @@ app.get('*', (req, res) => {
     })
 })
 
-app.listen(3000, () => {
-    console.log('Server is up on port 3000')
+// To start using app localy change port to run on lapy
+// app.listen(3000, () => {
+//     console.log('Server is up on port 3000')
+// })
+
+app.listen(port, () => {
+    console.log('Server is up on port '+ port)
 })
