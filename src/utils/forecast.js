@@ -10,7 +10,7 @@ const forecast = (latitude, longitude, callback) => {
         }else if(body.message){
             callback('Unable to find location please check coordinates.')
         }else{
-            callback(undefined,'Current weather is '+ body.main.temp +'C\u00B0')
+            callback(undefined,'Current weather is '+ body.main.temp +'C\u00B0'+' The high today is '+ body.main.temp_max +' and low is '+ body.main.temp_min)
         }
     })
 }
